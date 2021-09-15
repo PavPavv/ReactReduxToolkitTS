@@ -1,5 +1,5 @@
 import ProductItem from './ProductItem';
-import { Product } from '../../store/cart-slice';
+import { Product } from '../../store/cart/cart-slice';
 
 import classes from './Products.module.css';
 

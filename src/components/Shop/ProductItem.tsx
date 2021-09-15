@@ -1,7 +1,7 @@
 import Card from '../UI/Card';
-import { Product } from '../../store/cart-slice';
+import { Product } from '../../store/cart/cart-slice';
 import { useAppDispatch } from '../../store/storeHooks';
-import { cartActions } from '../../store/cart-slice';
+import { cartActions } from '../../store/cart/cart-slice';
 
 import classes from './ProductItem.module.css';
 

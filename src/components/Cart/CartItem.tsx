@@ -1,6 +1,6 @@
 import { useAppDispatch } from '../../store/storeHooks';
-import { cartActions } from '../../store/cart-slice';
-import { Product } from '../../store/cart-slice';
+import { cartActions } from '../../store/cart/cart-slice';
+import { Product } from '../../store/cart/cart-slice';
 
 import classes from './CartItem.module.css';
 

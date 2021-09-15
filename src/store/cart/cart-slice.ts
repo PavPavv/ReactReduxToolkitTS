@@ -19,12 +19,14 @@ export interface CartState {
   items: Item[],
   totalQuantity: number;
   totalAmount: number;
+  changed: boolean;
 };
 
 const initialState: CartState = {
   items: [],
   totalQuantity: 0,
   totalAmount: 0,
+  changed: false,
 };
 
 const cartSlice = createSlice({
@@ -32,11 +34,17 @@ const cartSlice = createSlice({
 
   initialState,
 
-  reducers: { 
+  reducers: {
+    replaceCart(state: CartState, action: PayloadAction<CartState>) {
+      state.totalQuantity = action.payload.totalQuantity;
+      state.items = action.payload.items;
+    },
+
     addItemToCart(state: CartState, action: PayloadAction<Product>) {
       const newItem = action.payload;
       const existingItem = state.items.find((item: Item) => item.id === newItem.id);
       state.totalQuantity++;
+      state.changed = true;
 
       if (!existingItem) {
         state.items.push({
@@ -56,6 +64,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const existingItem = state.items.find((item: Item) => item.id === id);
       state.totalQuantity--;
+      state.changed = true;
 
       if (existingItem) {
         if (existingItem?.quantity === 1) {

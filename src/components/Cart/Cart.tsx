@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../store/storeHooks';
-import { Item } from '../../store/cart-slice';
+import { Item } from '../../store/cart/cart-slice';
 import Card from '../UI/Card';
 import CartItem from './CartItem';
 
